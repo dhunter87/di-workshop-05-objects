@@ -8,12 +8,17 @@ function setup() {
   createCanvas(400, 400)
 
   for (var i = 0; i < ballCount; i = i + 1) {
-    xs[i] = Math.random() * width
-    ys[i] = Math.random() * height
-    speedX[i] = Math.random() * 3
-    speedY[i] = Math.random() * 3
+    var myBall = {
+      xs[i] = Math.random() * width
+      ys[i] = Math.random() * height
+      speedX[i] = Math.random() * 3
+      speedY[i] = Math.random() * 3
+    }
+    balls[i] = myBall
   }
+
 }
+
 function draw() {
   background(200)
 
