@@ -209,7 +209,7 @@ function createBall() {
 </p></details>
 
 **Extension: modify your sketch to create a new ball at the position of the
-mouse whenever it is pressed down**
+mouse whenever it is pressed down** - DONE 
 
 **Extension: add gravity! Add a small amount to the vertical speed of each ball
 every frame**
