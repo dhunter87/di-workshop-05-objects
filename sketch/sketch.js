@@ -11,10 +11,12 @@ function setup() {
 }
 function createBall(){
   balls.push({
+    //initialised ball objects perameters
     x: Math.random() * width,
     y: Math.random() * height,
     speedX: Math.random() * 3,
     speedY: Math.random() * 3,
+    //set colour of ball
     red: Math.random() * 256,
     blue: Math.random() * 256,
     green: Math.random() * 256
@@ -22,10 +24,12 @@ function createBall(){
 }
 function createBallOnClick(){
   balls.push({
+    //initialised ball objects perameters
     x: mouseX,
     y: mouseY,
     speedX: Math.random() * 3,
     speedY: Math.random() * 3,
+    //set colour of ball
     red: Math.random() * 256,
     blue: Math.random() * 256,
     green: Math.random() * 256
@@ -45,10 +49,12 @@ function draw() {
     if (balls[i].y < 0 || balls[i].y > height) {
       balls[i].speedY = balls[i].speedY * -1
     }
+
     balls[i].red++
     balls[i].green--
     fill(balls[i].red, balls[i].green, balls[i].blue)
     ellipse(balls[i].x - 5, balls[i].y - 5, 20, 20)
+    //add gravity
     balls[i].y += 0.4
   }
   
