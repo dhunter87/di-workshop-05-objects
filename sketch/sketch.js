@@ -41,5 +41,5 @@ function draw() {
   }
 }
 function mousePressed(){
-  createBall()
+  createBall(mouseX, mouseY)
 }
