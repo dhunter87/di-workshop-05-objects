@@ -20,6 +20,17 @@ function createBall(){
     green: Math.random() * 256
   })
 }
+function createBallOnClick(){
+  balls.push({
+    x: mouseX,
+    y: mouseY,
+    speedX: Math.random() * 3,
+    speedY: Math.random() * 3,
+    red: Math.random() * 256,
+    blue: Math.random() * 256,
+    green: Math.random() * 256
+  })
+}
 
 function draw() {
   background(200)
@@ -41,5 +52,5 @@ function draw() {
   }
 }
 function mousePressed(){
-  createBall(mouseX, mouseY)
+  createBallOnClick()
 }
