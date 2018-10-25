@@ -1,51 +1,45 @@
-var ballCount = 5
-var xs = []
-var ys = []
-var speedX = []
-var speedY = []
-
-//setup function add a canvas to draw onto and calls the newly created createBalls() function.
-
+// var ballCount = 5
+// var xs = []
+// var ys = []
+// var speedX = []
+// var speedY = []
+var balls = []
 function setup() {
   createCanvas(400, 400)
-  createBalls()
+  createBall()
+
 }
-//createBalls function created the balls for the draw function.
-function createBalls(){
-  console.log("create balls!")
-  for (var i = 0; i < ballCount; i = i + 1) {
-    xs[i] = Math.random() * width
-    ys[i] = Math.random() * height
-    speedX[i] = Math.random() * 3
-    speedY[i] = Math.random() * 3
-  }
-}// the draw function draws specified objects to the canvas
+function createBall(){
+  balls.push({
+    x: Math.random() * width,
+    y: Math.random() * height,
+    speedX: Math.random() * 3,
+    speedY: Math.random() * 3,
+    red: Math.random() * 256,
+    blue: Math.random() * 256,
+    green: Math.random() * 256
+  })
+}
+
 function draw() {
-  //background - sets the colour of the canvas
   background(200)
 
-  //for loop - assigns xs and ys values for each of the balls created (uses ball count to determin how many tp draw to the screen)
-  for (var i = 0; i < ballCount; i = i + 1) {
-    xs[i] += speedX[i]
-    ys[i] += speedY[i]
+  for (var i = 0; i < balls.length; i = i + 1) {
+    balls[i].x += balls[i].speedX
+    balls[i].y += balls[i].speedY
 
-    if (xs[i] < 0 || xs[i] > width) {
-      speedX[i] = speedX[i] * -1
+    if (balls[i].x < 0 || balls[i].x > width) {
+      balls[i].speedX = balls[i].speedX * -1
     }
-    if (ys[i] < 0 || ys[i] > height) {
-      speedY[i] = speedY[i] * -1
+    if (balls[i].y < 0 || balls[i].y > height) {
+      balls[i].speedY = balls[i].speedY * -1
     }
-
-    ellipse(xs[i] - 5, ys[i] - 5, 20, 20)
+    balls[i].red++
+    balls[i].green--
+    fill(balls[i].red, balls[i].green, balls[i].blue)
+    ellipse(balls[i].x - 5, balls[i].y - 5, 20, 20)
   }
 }
-class Ball{
-  constructor(xs, ys, height, width ){
-    this.xs = xs
-    this.ys = ys
-    this.width = width
-    this.height = height
-
-  }
-
+function mousePressed(){
+  createBall()
 }
