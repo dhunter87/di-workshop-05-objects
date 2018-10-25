@@ -49,7 +49,9 @@ function draw() {
     balls[i].green--
     fill(balls[i].red, balls[i].green, balls[i].blue)
     ellipse(balls[i].x - 5, balls[i].y - 5, 20, 20)
+    balls[i].y += 0.4
   }
+  
 }
 function mousePressed(){
   createBallOnClick()

@@ -137,37 +137,37 @@ happens.
 > run correctly. Type them out by hand - it’s better practice anyway.
 
 | Line                                               | Expected Result | Actual Result | Were you right? Why? |
-| -------------------------------------------------- | --------------- | ------------- | -------------------- |
-| `var alex = {name: 'alex', age: 23, height: 163}`  |                 |               |                      |
-| `alex.name`                                        |                 |               |                      |
-| `alex.age`                                         |                 |               |                      |
-| `alex.age = 1000`                                  |                 |               |                      |
-| `alex` (use the ▶ to expand the object)            |                 |               |                      |
-| `alex.hairColor = 'blue'`                          |                 |               |                      |
-| `alex`                                             |                 |               |                      |
-| `var pet = {name: 'amber', type: 'dog'}`           |                 |               |                      |
-| `pet`                                              |                 |               |                      |
-| `alex.pet = pet`                                   |                 |               |                      |
-| `alex`                                             |                 |               |                      |
-| `pet.name = 'lyla'`                                |                 |               |                      |
-| `alex.pet`                                         |                 |               |                      |
-| `delete alex.pet`                                  |                 |               |                      |
-| `alex.pet`                                         |                 |               |                      |
-| `pet`                                              |                 |               |                      |
-| `alex["name"]`                                     |                 |               |                      |
-| `var someString = 'age'`                           |                 |               |                      |
-| `alex[someString]`                                 |                 |               |                      |
-| `alex[someString] = 23`                            |                 |               |                      |
-| `var weirdObj = {spooky: true}`                    |                 |               |                      |
-| `weirdObj.strange = weirdObj`                      |                 |               |                      |
-| `weirdObj` (use ▶ to expand - how far does it go?) |                 |               |                      |
+    | -------------------------------------------------- | --------------- | ------------- | -------------------- |
+| `var alex = {name: 'alex', age: 23, height: 163}`  |     undefined   |undefined      |yes                   |
+| `alex.name`                                        |      Alex       |Alex           |yes                   |
+| `alex.age`                                         |        23       |23             |yes                   |
+| `alex.age = 1000`                                  |         1000    |1000           |yes                   |
+| `alex` (use the ▶ to expand the object)           |{name:'Alex', etc}|{name:'Alex', etc}|yes               |
+| `alex.hairColor = 'blue'`                          |        blue     |blue           |yes                   |
+| `alex`                                             |{name:'Alex', hairColor: 'blue'}|{name:'Alex', hairColor: 'blue'}|yes|
+| `var pet = {name: 'amber', type: 'dog'}`           |   undefined     |undefined      |yes                   |
+| `pet`                                              |{name:fj,type:dk}|{name:fj,type:dk}|   yes                |
+| `alex.pet = pet`                                   |       dont know |{name:fj,type:dk}|  no - didnt guess  |
+| `alex`                                             |{name;, etc pet{name:, typr:}} etc|{name;, etc pet{name:, typr:}} etc |yes|
+| `pet.name = 'lyla'`                                |       Lyla      |lyla           |yes                   |
+| `alex.pet`                                         |{name:lyla, type:}|{name:lyla, type:}|yes                   |
+| `delete alex.pet`                                  |         ?       |        true   |   no - didnt guess   |
+| `alex.pet`                                         |        undefined|undefined      |yes                   |
+| `pet`                                              |{name:cd, type:jh}|{name:cd, type:jh}| yes              |
+| `alex["name"]`                                     |          Alex   |Alex           |yes                      |
+| `var someString = 'age'`                           |undefined        |indefined      |yes                   |
+| `alex[someString]`                                 |       1000      |1000           |yes                   |
+| `alex[someString] = 23`                            |         23      |23             |yes                  |
+| `var weirdObj = {spooky: true}`                    |undefined        |undefined      |yes                   |
+| `weirdObj.strange = weirdObj`                      |?                |{spooky: , strange:[circular]}|     yes            |
+| `weirdObj` (use ▶ to expand - how far does it go?) |            ?   |same as above  |yes                      |
 
 Answer the following questions (you might need to do some research!)
 
-1. What is a JavaScript object?
+1. What is a JavaScript object? an object is a code version of a real world objecvt - e.g. a person is an object whick is modeled by its attributes and behaviors.
 1. In a JavaScript object, what are:
-   - keys
-   - values
+   - keys - name 
+   - values - value of keys - e.g name = Dan
    - properties
 1. Why would you use an object in JavaScript
 
@@ -212,4 +212,4 @@ function createBall() {
 mouse whenever it is pressed down** - DONE 
 
 **Extension: add gravity! Add a small amount to the vertical speed of each ball
-every frame**
+every frame** - DONE
